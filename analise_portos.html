@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Comparativa da Legislação Portuária</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #004080 0%, #0066cc 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        nav {
+            background: rgba(51, 51, 51, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            padding: 1rem 1.5rem;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover {
+            background: linear-gradient(135deg, #004080, #0066cc);
+            transform: translateY(-2px);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #0066cc;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+        
+        section {
+            background: #fff;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            color: #004080;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #004080, #0066cc);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: #0066cc;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #e6f0ff 0%, #cce7ff 100%);
+            border-left: 6px solid #004080;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        li::marker {
+            color: #004080;
+        }
+        
+        strong {
+            color: #004080;
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #004080, #0066cc);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e6f0ff;
+            transition: background-color 0.3s ease;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #004080, #0066cc);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media(max-width: 768px){
+            .container {
+                padding: 0 15px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li a {
+                padding: 0.8rem 1rem;
+                text-align: center;
+            }
+            
+            section {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media(max-width: 480px){
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+            
+            nav ul li a {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Análise Comparativa da Legislação Portuária Brasileira</h1>
+    </header>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#regulatorio">Eixo Regulatório</a></li>
+            <li><a href="#trabalhista">Eixo Trabalhista</a></li>
+            <li><a href="#contratual">Eixo Contratual</a></li>
+            <li><a href="#investimentos">Investimentos, Concessões e TUPs</a></li>
+            <li><a href="#governanca">Governança e Fiscalização</a></li>
+            <li><a href="#impactos">Análise de Possíveis Impactos</a></li>
+            <li><a href="#conclusoes">Conclusões Gerais</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="introducao" class="intro">
+            <h2>Introdução</h2>
+            <p>Esta página apresenta uma análise técnica e comparativa entre a atual <strong>Lei dos Portos (Lei nº 12.815/2013)</strong>, o <strong>Projeto de Lei nº 733/2025</strong> e o anteprojeto elaborado pela Comissão de Juristas para Revisão da Exploração de Portos e Instalações Portuárias (Ceportos). O objetivo é fornecer uma visão clara e organizada sobre as principais mudanças propostas para o setor portuário brasileiro, abordando os eixos temáticos mais relevantes.</p>
+        </section>
+
+        <section id="regulatorio">
+            <h2>1 – Eixo Regulatório</h2>
+            <h3>Dispositivo(s) comparado(s)</h3>
+            <ul>
+                <li><strong>Lei 12.815/2013:</strong> arts. 1º a 4º (exploração direta/indireta de portos), arts. 14 a 17 (competências do poder concedente, da Antaq e das autoridades portuárias), art. 20 (Conselho de Autoridade Portuária – CAP).</li>
+                <li><strong>Anteprojeto (Ceportos):</strong> proposta de redistribuição de competências (União, Antaq e autoridades portuárias) e fortalecimento do CAP; criação de câmara de autorregulação para resolução de conflitos.</li>
+                <li><strong>PL 733/2025:</strong> arts. 16–21 (competências da União, Antaq e autoridades portuárias; composição e competências do CAP), art. 85 (dragagem como atividade de interesse público), arts. 92–98 (Política de integração porto‑cidade e receitas municipais).</li>
+            </ul>
+
+            <h3>Texto da lei vigente (resumo)</h3>
+            <ul>
+                <li><strong>Competências e poder concedente:</strong> A Lei 12.815/2013 regula a exploração direta ou indireta de portos. A exploração indireta ocorre por concessão ou arrendamento dentro do porto organizado e por autorização para instalações fora do porto organizado. O poder concedente (Ministério/Secretaria de Portos) elabora o planejamento setorial, promove licitações e celebra contratos; a Antaq fiscaliza a execução contratual. A administração dos portos organizados cabe à União, à delegatária ou à concessionária.</li>
+                <li><strong>Conselho de Autoridade Portuária (CAP):</strong> a Lei prevê um órgão consultivo em cada porto organizado com 50 % de representantes do poder público, 25 % da classe empresarial e 25 % da classe trabalhadora. Suas atribuições são fixadas por regulamento; o CAP indica representantes para o conselho de administração da autoridade portuária.</li>
+                <li><strong>Planejamento e licenciamento:</strong> a lei exige consulta ao município e termo de referência ambiental antes de concessões ou autorizações.</li>
+                <li><strong>Poligonal e zoneamento:</strong> a delimitação da área do porto organizado depende de ato do Presidente da República após proposta da Secretaria de Portos.</li>
+            </ul>
+
+            <h3>Texto do PL 733/2025 (resumo)</h3>
+            <ul>
+                <li><strong>Redistribuição de competências:</strong> o PL cria seis eixos de reforma. Ele redistribui competências entre a União, a Agência Nacional de Transportes Aquaviários (Antaq) e as autoridades portuárias, conferindo à Antaq o papel de poder concedente para portos privados (TUPs) e de autorizadora de transferências de titularidade. As autoridades portuárias passam a conceder arrendamentos e contratos de transição conforme o Plano de Desenvolvimento e Zoneamento (PDZ).</li>
+                <li><strong>Fortalecimento do CAP:</strong> o PL revaloriza o CAP, ampliando sua composição e suas competências. O CAP passa a opinar sobre propostas de revisão da poligonal e do PDZ e a sabatinar indicados à diretoria das autoridades portuárias; contudo, mantém caráter consultivo, como destaca análise externa: artigo 20, §2º prevê que o CAP é órgão consultivo da autoridade portuária. O art. 21 define composição mais ampla (representantes públicos, empresários, trabalhadores, comunidade local e entidades ambientais).</li>
+                <li><strong>Dragagem e licenciamento:</strong> o art. 85 declara a dragagem de portos e hidrovias como atividade de interesse público.</li>
+                <li><strong>Política de integração porto‑cidade:</strong> o Título V institui a Política de Incentivo à Integração Porto‑Cidade (arts. 92–96), definindo integração como conjunto de políticas e planos cooperativos entre porto, município e iniciativa privada. Entretanto, o art. 98 determina que, ao legislar sobre assuntos de interesse local, o município deve respeitar os limites da área do porto público ou privado e compatibilizar seu plano diretor com o PDZ.</li>
+                <li><strong>Receitas municipais:</strong> o art. 97 atribui a 1 % da receita bruta anual das tarifas cobradas pela autoridade portuária e 5 % do valor de outorga dos leilões de concessão ou arrendamento aos municípios onde o porto está localizado.</li>
+                <li><strong>Câmara de autorregulação:</strong> o PL cria a Câmara de Autorregulação e Resolução de Conflitos, associação sem fins lucrativos para regular relações e mediar conflitos setoriais sob supervisão da Antaq.</li>
+            </ul>
+
+            <h3>Análise técnica objetiva</h3>
+            <ul>
+                <li><strong>Competências:</strong> o PL altera a repartição de poderes. A Lei 12.815/2013 centraliza o poder concedente na União (Secretaria de Portos), enquanto o PL transfere a outorga e fiscalização de portos privados (TUPs) à Antaq e confere às autoridades portuárias a concessão de áreas dentro do porto organizado. Essa mudança reduz a intervenção direta da União e busca reforçar a autonomia regulatória da Antaq e das autoridades portuárias.</li>
+                <li><strong>CAP:</strong> o conselho continua consultivo, mas seu escopo cresce: ele passa a participar da aprovação da poligonal, do PDZ e da indicação de diretores. A composição deixará de ser paritária (50/25/25) e incluirá representantes da comunidade e do meio ambiente. A ampliação pode aumentar a representatividade, porém sem alterar o caráter consultivo.</li>
+                <li><strong>Planejamento e integração porto‑cidade:</strong> o PL cria normas detalhadas para integração porto‑cidade e define receitas para municípios; contudo, o art. 98 subordina o planejamento municipal aos limites da poligonal e do PDZ, o que altera o equilíbrio federativo da lei vigente (que exige apenas consulta ao município para concessões).</li>
+                <li><strong>Dragagem e licenciamento:</strong> a declaração de dragagem como atividade de interesse público e a previsão de licenciamento ambiental integrado (não explicitado no texto mas citada em análises sectoriais) indicam intenção de uniformizar procedimentos ambientais, sem previsão semelhante na lei vigente.</li>
+                <li><strong>Autorregulação:</strong> a criação de uma câmara de autorregulação representa inovação em relação à lei vigente, que não prevê órgão similar. O objetivo é desjudicializar conflitos.</li>
+            </ul>
+
+            <h3>Sugestões da ABTP (resumo)</h3>
+            <ul>
+                <li><strong>Exclusão da Câmara de Autorregulação e de portos estratégicos:</strong> o documento do Grupo de Trabalho da ABTP propõe suprimir a "Câmara de Autorregulação e Resolução de Conflitos do Setor Portuário e Aquaviário" dos entes integrantes do Sistema Portuário Brasileiro (art. 2º, inciso XVI) e eliminar a definição desse organismo (art. 2º, inciso XXXIV). Também sugere excluir a categoria de portos estratégicos (art. 2º, inciso XXIV), entendendo que tais conceitos ampliam a burocracia e não obtêm consenso entre os setores.</li>
+                <li><strong>Debate sobre terminais retroportuários alfandegados:</strong> não há consenso na Coalizão quanto à manutenção do inciso III do art. 2º, que inclui os terminais retroportuários alfandegados como componentes do sistema portuário, revelando divergência sobre a abrangência das instalações a serem reguladas.</li>
+                <li><strong>Alterações em legislações conexas:</strong> a proposta da ABTP inclui alterações na Lei 10.233/2001 e na Lei 9.636/1988 para reforçar que as agências reguladoras garantam liberdade tarifária, classifiquem contratos portuários como de utilidade pública e permitam a transferência de concessões, arrendamentos e autorizações, expandindo o alcance do projeto de lei.</li>
+                <li><strong>Audiência pública para revisão da poligonal e do PDZ:</strong> a coalizão propõe que qualquer revisão da poligonal do porto e do Plano de Desenvolvimento e Zoneamento (PDZ) seja submetida a audiência pública, não apenas ao CAP, sob pena de nulidade. A medida visa assegurar transparência e participação social.</li>
+                <li><strong>Áreas de uso geral no PDZ:</strong> o documento recomenda que o PDZ inclua áreas destinadas à operação de uso geral em cais de uso público, disponibilizadas para operadores portuários habilitados pré‑qualificados, respeitando preferências e prioridades concedidas a arrendatários. Isso busca garantir acesso competitivo a berços públicos.</li>
+                <li><strong>Integração porto‑cidade com cooperação mútua:</strong> a definição de Integração Porto‑Cidade deve enfatizar a cooperação mútua entre porto e município, com participação da iniciativa privada e da sociedade, em vez de subordinar o planejamento municipal ao PDZ. Assim, a ABTP sugere ajustar o conceito de integração para refletir políticas e ações conjuntas.</li>
+                <li><strong>Exclusão de capítulos sobre fornecedores de bens e serviços a navios:</strong> os artigos 31 a 36, que regulam a atividade de fornecedores de bens e serviços a navios, não contam com consenso. A ABTP propõe sua exclusão integral, entendendo que esse tema extrapola o escopo da lei portuária.</li>
+                <li><strong>Exclusão ou avaliação da Câmara de Autorregulação e de portos estratégicos:</strong> o grupo de trabalho recomenda suprimir a “Câmara de Autorregulação e Resolução de Conflitos do Setor Portuário e Aquaviário” e a categoria de portos estratégicos (art. 2º, incisos XVI, XXIV e XXXIV). Parte da coalizão admite manter a redação original da câmara apenas para estudo, mas não há consenso.</li>
+                <li><strong>Debate sobre terminais retroportuários alfandegados:</strong> a inclusão de terminais retroportuários alfandegados como componentes do sistema portuário (art. 2º, inciso III) permanece controvertida; a coalizão não alcançou consenso sobre sua permanência.</li>
+                <li><strong>Alterações em legislações conexas (complementares):</strong> além das propostas acima, a ABTP sugere alterações em leis conexas (Lei 10.233/2001 e Lei 9.636/1988) para reforçar liberdade tarifária, classificar contratos portuários como utilidade pública e permitir transferência de outorgas.</li>
+            </ul>
+        </section>
+
+        <section id="trabalhista">
+            <h2>2 – Eixo Trabalhista</h2>
+            <h3>Dispositivo(s) comparado(s)</h3>
+            <ul>
+                <li><strong>Lei 12.815/2013:</strong> arts. 40–45 (regime de trabalho portuário). O art. 40 lista as categorias de trabalhadores (capatazia, estiva, conferência, conserto de carga, bloco e vigilância) e determina que o trabalho seja realizado por empregados permanentes ou trabalhadores avulsos. O §2º do art. 40 impõe que a contratação dos trabalhadores dessas categorias com vínculo por prazo indeterminado seja feita exclusivamente entre trabalhadores avulsos registrados e proíbe a locação de mão de obra temporária. Arts. 41–43 tratam do Órgão de Gestão de Mão de Obra (OGMO), que cadastra, registra e distribui trabalhadores avulsos; o operador portuário negocia remuneração, composição de ternos e multifuncionalidade com sindicatos.</li>
+                <li><strong>Anteprojeto (Ceportos):</strong> propõe o fim da exclusividade de mão de obra avulsa, a facultatividade do OGMO e a extinção de subcategorias de trabalhadores; admite terceirização da guarda portuária.</li>
+                <li><strong>PL 733/2025:</strong> arts. 110–124 (gestão de mão de obra, OGMO, empresas prestadoras de trabalho portuário). Art. 110 permite que operadores e terminais em portos públicos extinguam ou constituam um ou mais OGMOs. Art. 113 lista as competências do OGMO (normas disciplinares, escalações, treinamentos, penalidades). Art. 117 determina que trabalhadores inscritos nas atividades de bloco, conserto e vigia optem, em 180 dias, por estiva, capatazia ou conferência. Art. 118 cria a Empresa Prestadora de Trabalho Portuário (EPTP) – pessoa jurídica que cede trabalhadores para movimentação de cargas em portos públicos e privados. Art. 124 confere ao Serviço Nacional de Aprendizagem do Transporte (SENAT) a certificação profissional dos trabalhadores; o trabalhador portuário avulso será sempre qualificado como multifuncional. Nos portos privados, a contratação pode ocorrer por qualquer forma admitida pela legislação trabalhista, inclusive terceirização.</li>
+            </ul>
+
+            <h3>Texto da lei vigente (resumo)</h3>
+            <ul>
+                <li><strong>Categorias e exclusividade:</strong> a lei atual distingue seis categorias de trabalhadores portuários (capatazia, estiva, conferência, conserto de carga, vigilância e bloco). A contratação de trabalhadores com vínculo indeterminado para essas atividades deve ser feita exclusivamente entre avulsos registrados. O operador portuário não pode contratar mão de obra temporária. O OGMO organiza o cadastro e registro dos trabalhadores avulsos.</li>
+                <li><strong>Multifuncionalidade e negociação coletiva:</strong> o art. 43 permite que remuneração, composição dos ternos e multifuncionalidade sejam objeto de negociação coletiva.</li>
+            </ul>
+
+            <h3>Texto do PL 733/2025 (resumo)</h3>
+            <ul>
+                <li><strong>OGMO facultativo e multiplicado:</strong> o PL autoriza a constituição ou extinção de OGMOs em portos públicos, permitindo até mais de um OGMO por porto. O OGMO continua sem fins lucrativos mas sua competência passa a expedir normas disciplinares, aplicar penalidades e realizar treinamento.</li>
+                <li><strong>Extinção de subcategorias e multifuncionalidade:</strong> o art. 117 extingue as subcategorias de bloco, conserto e vigia, determinando que, dentro de 180 dias, esses trabalhadores optem por estiva, capatazia ou conferência. O trabalhador avulso deverá ser qualificado como multifuncional e certificado pelo SENAT.</li>
+                <li><strong>EPTP e terceirização:</strong> o PL institui a Empresa Prestadora de Trabalho Portuário (EPTP) para ceder trabalhadores aos operadores. Nas instalações privadas, os titulares podem contratar mão de obra por qualquer forma permitida em lei (emprego direto, terceirização ou cooperativa).</li>
+            </ul>
+
+            <h3>Análise técnica objetiva</h3>
+            <ul>
+                <li><strong>Exclusividade vs. prioridade:</strong> o art. 40 da lei vigente estabelece exclusividade de contratação de trabalhadores avulsos registrados para categorias essenciais. O anteprojeto da Ceportos propôs eliminar a exclusividade, mantendo apenas a exigência de qualificação; o PL adota essa lógica ao permitir contratação direta ou via EPTP e ao tornar o OGMO facultativo em portos públicos.</li>
+                <li><strong>Estrutura de gestão de mão de obra:</strong> o OGMO deixa de ser obrigatório e passa a concorrer com EPTPs. Essa flexibilização amplia a autonomia dos operadores e autoridades portuárias. Contudo, a manutenção das competências disciplinar e de treinamento do OGMO gera necessidade de coordenação com a certificação pelo SENAT.</li>
+                <li><strong>Extinção de subcategorias e multifuncionalidade:</strong> a lei vigente contempla categorias profissionais diferenciadas e permite multifuncionalidade negociada. O PL extingue três categorias e torna a multifuncionalidade mandatória, impondo prazo de 180 dias para opção. Isso simplifica o quadro funcional mas exige requalificação dos trabalhadores.</li>
+                <li><strong>EPTP e terceirização:</strong> a criação de empresas de trabalho portuário amplia formas de contratação, o que não é previsto na lei vigente.</li>
+            </ul>
+
+            <h3>Sugestões da ABTP (resumo)</h3>
+            <ul>
+                <li><strong>Exclusão de cotas sociais aplicáveis aos operadores portuários:</strong> o GT da ABTP sugere incluir, no Título VI, Capítulo I (Relações de Trabalho Portuário), artigos que excluam as atividades portuárias da base de cálculo das cotas de aprendizagem previstas no art. 429 da CLT e da cota destinada a pessoas com deficiência e reabilitadas prevista no art. 93 da Lei 8.213/1991, de modo a desonerar os operadores dessas obrigações.</li>
+                <li><strong>Competência exclusiva do OGMO:</strong> propõe-se inserir dispositivo afirmando que as atribuições previstas nos arts. 111, 112 e 113 (gestão de mão de obra) só poderão ser exercidas pelo OGMO competente, vedada a atuação de sindicatos ou outras entidades e proibindo a inclusão dessas competências em acordos ou convenções coletivas.</li>
+                <li><strong>Horas extras e responsabilidades:</strong> o documento sugere que não sejam consideradas horas extraordinárias as escalas adicionais realizadas pelo OGMO e que o OGMO não responda solidária ou subsidiariamente por acidentes de trabalho ou doenças ocupacionais de trabalhadores avulsos. Também propõe a concessão de benefício assistencial (até um salário‑mínimo) a trabalhadores avulsos com mais de 60 anos que não atendam aos requisitos de aposentadoria.</li>
+                <li><strong>Falta de consenso sobre escopo do OGMO:</strong> várias disposições relacionadas ao OGMO permanecem sem consenso, inclusive a possibilidade de prestação de serviços “dentro ou fora” do porto público; a Coalizão ainda discute o alcance territorial e as funções do órgão gestor de mão de obra.</li>
+                <li><strong>Preservação do modelo Ceportos e exclusão de parágrafos que reduzem direitos:</strong> a ABTP recomenda manter a redação do anteprojeto Ceportos para os princípios e direitos do trabalhador.</li>
+            </ul>
+        </section>
+
+        <section id="contratual">
+            <h2>3 – Eixo Contratual</h2>
+            <h3>Dispositivo(s) comparado(s)</h3>
+            <ul>
+                <li><strong>Lei 12.815/2013:</strong> arts. 2º e 4º–5º (conceitos de concessão, arrendamento e autorização); art. 14 (prazos de autorizações e prorrogação). Arrendamentos em portos organizados são precedidos de licitação e têm prazo de até 25 anos, prorrogável uma vez por igual período por critério do poder concedente (total de 50 anos). Autorizações para TUPs e estações de transbordo têm prazo de 25 anos prorrogável por períodos sucessivos.</li>
+                <li><strong>Anteprojeto (Ceportos):</strong> sugere prorrogações sucessivas de arrendamentos, possibilidade de investimentos por conta do arrendatário sem reversão de bens, e inclusão de contratos de transição e de passagem na lei.</li>
+                <li><strong>PL 733/2025:</strong> arts. 53–55 (arrendamentos), art. 18 (licitação por diálogo competitivo avançado), arts. 44–51 (contratos de transição e de passagem) – conforme relatado por análises setoriais.</li>
+            </ul>
+
+            <h3>Texto da lei vigente (resumo)</h3>
+            <ul>
+                <li><strong>Definições contratuais:</strong> a lei conceitua concessão como cessão onerosa do porto organizado por prazo determinado e arrendamento como cessão onerosa de área e infraestrutura públicas dentro do porto organizado. Autorização é outorga para instalações fora do porto organizado.</li>
+                <li><strong>Prazos:</strong> autorizações de instalações portuárias têm prazo de até 25 anos, prorrogáveis desde que a atividade seja mantida e se façam os investimentos necessários. Decreto 8.033/2013 limita concessões e arrendamentos dentro do porto organizado a 25 anos com uma prorrogação (50 anos).</li>
+                <li><strong>Reversão de bens:</strong> contratos exigem cláusulas sobre investimento e reversão; bens vinculados revertidos ao término do prazo.</li>
+            </ul>
+
+            <h3>Texto do PL 733/2025 (resumo)</h3>
+            <ul>
+                <li><strong>Prazos de arrendamento:</strong> o art. 53 estabelece que contratos de arrendamento terão prazo de até 35 anos, prorrogável por sucessivas vezes até o limite de 70 anos, inclusive para contratos em vigor, condicionados ao cumprimento das obrigações contratuais. §1º autoriza a prorrogação de contratos firmados sob as Leis 8.630/1993 e 12.815/2013 até o máximo de 70 anos. §2º exige que a autoridade portuária fundamente a vantagem da prorrogação em relação a uma nova licitação; §3º indica critérios como interesse público, garantia de continuidade e indução à competitividade. O art. 54 prevê que, após 70 anos, a autoridade avaliará a vantajosidade e, se positiva, promoverá chamamento público.</li>
+                <li><strong>Investimentos pelo arrendatário:</strong> art. 55 permite que o arrendatário faça investimentos não previstos contratualmente, por sua conta e risco, sem reversão de bens ou indenização, independentemente de autorização da autoridade portuária, devendo apenas comunicar o investimento com 30 dias de antecedência.</li>
+                <li><strong>Contratos de transição e de passagem:</strong> o PL positivou contratos de transição (operação temporária até a conclusão do processo de outorga) e de passagem (acesso a áreas portuárias para movimentação e armazenagem). Tais instrumentos eram apenas regulamentados pela Antaq.</li>
+                <li><strong>Licitação por diálogo competitivo avançado:</strong> art. 18 institui modalidade de licitação para obras ou serviços de infraestrutura ou dragagem com diálogo competitivo avançado, permitindo negociações para desenvolver alternativas que atendam às necessidades, objetivando técnica mais econômica.</li>
+            </ul>
+
+            <h3>Análise técnica objetiva</h3>
+            <ul>
+                <li><strong>Ampliação dos prazos:</strong> o PL amplia o prazo inicial do arrendamento de 25 para 35 anos e permite prorrogações sucessivas até 70 anos, estendendo-se a contratos em vigor. A lei vigente limitava arrendamentos dentro do porto organizado a 50 anos no total. O PL também introduz a avaliação da vantajosidade para eventual permanência além de 70 anos. Essa alteração visa dar maior segurança aos investimentos, aproximando‑se da prática de portos estrangeiros.</li>
+                <li><strong>Investimentos por conta e risco:</strong> permitir investimentos fora do escopo contratual sem reversão de bens inova em relação à lei vigente e reduz o controle da autoridade portuária sobre bens reversíveis. A medida estimula investimentos privados mas cria risco de conflitos sobre adequação, licenciamento e responsabilidade, já que a lei vigente exigia prévia autorização e reversibilidade.</li>
+                <li><strong>Contratos de transição e passagem:</strong> ao elevar esses instrumentos à categoria legal, o PL confere segurança jurídica a operações temporárias e ao acesso a áreas portuárias.</li>
+                <li><strong>Diálogo competitivo avançado:</strong> a nova modalidade licitatória procura adaptar a técnica do diálogo competitivo (Lei 14.133/2021) ao setor portuário. A inclusão procura flexibilizar a contratação de obras complexas (dragagem e infraestrutura) e pode representar inovação procedimental em comparação com os pregões e concorrências tradicionais usados na lei vigente.</li>
+            </ul>
+
+            <h3>Sugestões da ABTP (resumo)</h3>
+            <ul>
+                <li><strong>Exclusão do requisito socioeconômico na dispensa de licitação (art. 56):</strong> o grupo de trabalho da ABTP propõe suprimir o inciso III do art. 56, que condiciona a dispensa de licitação à comprovação de geração significativa de empregos, receitas portuárias e arrecadação de impostos. Entende-se que esses critérios são vagos e podem inibir investimentos de um único interessado.</li>
+            </ul>
+        </section>
+
+        <section id="investimentos">
+            <h2>4 – Investimentos, concessões e TUPs vs. porto organizado</h2>
+            <h3>Dispositivo(s) comparado(s)</h3>
+            <ul>
+                <li><strong>Lei 12.815/2013:</strong> arts. 2º, 4º, 14–16 (definições de concessão, arrendamento, autorização e poder concedente); art. 25 do Decreto 8.033/2013 (prazos de concessão e arrendamento).</li>
+                <li><strong>Anteprojeto (Ceportos):</strong> preconiza transferência de competência para a Antaq e ampliação dos prazos, bem como investimentos por conta e risco.</li>
+                <li><strong>PL 733/2025:</strong> arts. 16–21 (competências de Antaq e autoridades portuárias), arts. 53–55 (arrendamentos), art. 97 (participação municipal em receitas), art. 98 (subordinação do planejamento municipal ao PDZ); arts. 92–96 (Política de integração porto‑cidade).</li>
+            </ul>
+
+            <h3>Texto da lei vigente (resumo)</h3>
+            <ul>
+                <li><strong>Porto organizado vs. terminal de uso privado (TUP):</strong> a lei distingue o porto organizado (bem público administrado por autoridade portuária) e instalações portuárias fora do porto (TUPs, ETCs, instalações de pequeno porte e de turismo). Portos organizados são explorados por concessão ou arrendamento, enquanto TUPs são explorados mediante autorização concedida pela União, com prazo de até 25 anos prorrogável por períodos sucessivos. O poder concedente centraliza as decisões e licitações.</li>
+                <li><strong>Investimentos e reversão:</strong> contratos exigem cláusulas sobre investimentos de responsabilidade do contratado; bens vinculados revertem à União ao término do contrato.</li>
+            </ul>
+
+            <h3>Texto do PL 733/2025 (resumo)</h3>
+            <ul>
+                <li><strong>Competência da Antaq para TUPs:</strong> o PL transfere à Antaq o poder concedente de portos privados (TUPs), incluindo autorizações de atividade portuária e de estações de transbordo de mercadorias, e permite que a agência autorize transferências de titularidade.</li>
+                <li><strong>Autoridade portuária como concedente:</strong> as autoridades portuárias (empresas públicas ou sociedades de economia mista) passam a ser poder concedente para arrendamentos de áreas em terra ou água e para contratos de transição e de passagem, de acordo com o PDZ.</li>
+                <li><strong>Prorrogação e investimento:</strong> como visto no tema contratual, os prazos de arrendamentos passam para 35 anos renováveis até 70 anos. O arrendatário poderá investir sem necessidade de reversão de bens.</li>
+                <li><strong>Receitas municipais e integração porto‑cidade:</strong> o art. 97 destina parte da receita tarifária e do valor de outorga aos municípios. O art. 98 subordina o planejamento municipal às poligonais e ao PDZ; o Título V cria a Política de Integração Porto‑Cidade.</li>
+            </ul>
+
+            <h3>Análise técnica objetiva</h3>
+            <ul>
+                <li><strong>Competência e incentivos a investimentos privados:</strong> o PL desloca a competência para autorizações de TUPs à Antaq e permite às autoridades portuárias conceder arrendamentos. Essa descentralização pode agilizar processos de autorização e arrendamento, incentivando investimentos privados.</li>
+                <li><strong>Prazos e segurança jurídica:</strong> a ampliação dos prazos de arrendamento (35 anos prorrogáveis até 70 anos) e a possibilidade de prorrogar contratos em vigor aumentam previsibilidade, favorecendo financiamentos de longo prazo.</li>
+                <li><strong>Municipalidades:</strong> a criação de receitas municipais (1 % das tarifas e 5 % do valor de outorga) introduz compensação financeira para municípios e incentiva colaboração, embora o art. 98 restrinja a autonomia local.</li>
+                <li><strong>Investimentos sem reversão:</strong> permitir investimentos a risco do arrendatário sem reversibilidade de bens altera a lógica patrimonial da lei vigente e pode incentivar melhorias, mas exige mecanismos de controle para evitar investimentos inadequados ou incompatíveis com o PDZ.</li>
+            </ul>
+
+            <h3>Sugestões da ABTP (resumo)</h3>
+            <ul>
+                <li><strong>Liberdade de preços e estímulo à concorrência:</strong> a ABTP propõe acrescentar dispositivos na Lei 10.233/2001 para garantir que as agências reguladoras de transportes assegurem liberdade de preços nas tarifas praticadas por arrendatários e autorizatários e promovam a concorrência por meio de competição entre instalações portuárias. Essa proposta visa consolidar a liberdade tarifária enunciada no art. 4º, inciso IV do PL.</li>
+                <li><strong>Declaração de utilidade pública e transferência de outorgas:</strong> a entidade sugere inserir na Lei 10.233/2001 novo art. 29‑A declarando que a celebração de contratos de concessão, arrendamento e autorização portuários configura declaração de utilidade pública, permitindo desapropriações necessárias às obras. Propõe também, no art. 30 da mesma lei, permitir a transferência da titularidade de concessões, permissões, arrendamentos ou autorizações, preservados o objeto e as condições contratuais, desde que o novo titular atenda aos requisitos legais. Isso facilitaria transações societárias (cisões, fusões, incorporações) e entrada de novos investidores.</li>
+                <li><strong>Gestão de espaços aquáticos:</strong> na Lei 9.636/1988, a ABTP propõe especificar que o espaço físico em águas públicas situado na poligonal do porto organizado público será gerido e cedido diretamente pela autoridade portuária; nos portos privados e estações de transbordo, a cessão será feita pela Antaq. A medida visa evitar conflito de competência com a Secretaria de Patrimônio da União, embora o documento reconheça risco de objeção jurídica.</li>
+            </ul>
+        </section>
+
+        <section id="governanca">
+            <h2>5 – Governança e Fiscalização</h2>
+            <h3>Dispositivo(s) comparado(s)</h3>
+            <ul>
+                <li><strong>Lei 12.815/2013:</strong> art. 20 (criação do CAP), arts. 41–43 (cadastro e registro de trabalhadores pelo OGMO), arts. 46–49 (infrações e penalidades), art. 17 (administração do porto organizado); Antaq exerce fiscalização conforme lei 10.233/2001.</li>
+                <li><strong>Anteprojeto (Ceportos):</strong> propõe fortalecimento do CAP, criação de conselho de supervisão independente para OGMO, terceirização da guarda portuária e eliminação da exclusividade de mão de obra.</li>
+                <li><strong>PL 733/2025:</strong> arts. 16–21 (administrador portuário e CAP), arts. 110–118 (OGMO e EPTP), art. 85 (dragagem de interesse público), arts. 92–98 (Política de integração porto‑cidade); criação de câmara de autorregulação.</li>
+            </ul>
+
+            <h3>Texto da lei vigente (resumo)</h3>
+            <ul>
+                <li><strong>Fiscalização e responsabilidade:</strong> a Antaq fiscaliza contratos de concessão, arrendamento e autorização. A administração do porto organizado é exercida pela União ou delegatários. Os conselhos de autoridade portuária têm caráter consultivo. O OGMO é responsável pela gestão do cadastro e fornecimento de trabalhadores avulsos. As infrações são punidas com advertência, multa, suspensão ou cancelamento.</li>
+            </ul>
+
+            <h3>Texto do PL 733/2025 (resumo)</h3>
+            <ul>
+                <li><strong>Governança corporativa:</strong> além de ampliar o CAP (composição e competências), o PL torna as autoridades portuárias empresas públicas ou sociedades de economia mista responsáveis pela exploração e gestão do porto, conferindo‑lhes poder concedente para arrendamentos.</li>
+                <li><strong>Câmara de autorregulação:</strong> o projeto cria uma câmara de autorregulação e resolução de conflitos submetida à fiscalização da Antaq, para dirimir disputas e estabelecer normas setoriais.</li>
+                <li><strong>Fiscalização ambiental e dragagem:</strong> o art. 85 reconhece a dragagem como atividade de interesse público; a integração de licenciamento ambiental (citada em análises) ficará a cargo da Antaq e do órgão licenciador.</li>
+                <li><strong>Trabalho portuário:</strong> a gestão de mão de obra passa a ter múltiplos atores (OGMO, EPTP, SENAT), alterando a estrutura de supervisão.</li>
+            </ul>
+
+            <h3>Análise técnica objetiva</h3>
+            <ul>
+                <li><strong>Atribuições da autoridade portuária:</strong> ao permitir que a autoridade portuária se torne poder concedente de arrendamentos e contratos transitórios, o PL expande suas competências e pode exigir maior capacidade técnica e mecanismos de controle para evitar conflitos de interesse.</li>
+                <li><strong>CAP e governança participativa:</strong> a ampliação do CAP aumenta a participação social e ambiental, mas o conselho permanece consultivo. Será necessário garantir que suas manifestações sejam consideradas pelo administrador portuário.</li>
+                <li><strong>Fiscalização e autorregulação:</strong> a criação da câmara de autorregulação é inovação relevante, buscando desjudicializar conflitos. A Antaq seguirá sendo o órgão fiscalizador, agora com competências ampliadas.</li>
+                <li><strong>Guarda portuária e segurança:</strong> o anteprojeto Ceportos previa terceirização da guarda patrimonial, o que não consta no resumo do PL até agora – caberá acompanhar o texto final para verificar manutenção ou supressão.</li>
+            </ul>
+
+            <h3>Sugestões da ABTP (resumo)</h3>
+            <ul>
+                <li><strong>Exclusão da câmara de autorregulação:</strong> a ABTP defende a retirada da Câmara de Autorregulação e Resolução de Conflitos do texto do PL, argumentando que o setor não alcançou consenso sobre a necessidade de autorregulação. Também considera desnecessária a definição de “portos estratégicos” e recomenda suprimir essa categoria do art. 2º.</li>
+                <li><strong>Falta de consenso sobre OGMO e autarquias:</strong> os artigos 111–113 que reconhecem o OGMO como entidade de utilidade pública e disciplinam suas atribuições permanecem sem consenso na Coalizão. Algumas entidades defendem limitar a atuação do OGMO ao porto organizado e vedar que preste serviços fora da área do porto. A ABTP ressalta que o debate ainda depende de posicionamento da Federação Nacional dos Operadores Portuários (FENOP).</li>
+                <li><strong>Dispensa de normas complementares:</strong> no capítulo sobre a Câmara de Autorregulação (arts. 38–41), o documento registra “sem consenso” e indica que a coalizão ainda avalia se serão necessárias normas infralegais adicionais. A ausência de consenso é indicativa de que a criação da câmara e sua atuação poderão ser retiradas do projeto ou reguladas posteriormente.</li>
+                <li><strong>Fortalecimento do CAP com participação social:</strong> a ABTP ressalta que a revisão da poligonal e do PDZ deve ser precedida de audiências públicas e que o CAP, mesmo consultivo, deve ouvir representantes comunitários, operadores e trabalhadores antes de encaminhar propostas.</li>
+                <li><strong>OGMO como órgão único e obrigatório:</strong> as atribuições de cadastro, escalação e disciplina dos trabalhadores avulsos devem ser exercidas por um único OGMO em cada porto, constituído e custeado pelos operadores e terminais. A extinção do órgão exigiria compensação aos trabalhadores e guarda de documentos pela autoridade portuária.</li>
+                <li><strong>Competência da Antaq e supervisão:</strong> apesar de apoiar a transferência de competências à Antaq, a ABTP defende que a agência exerça supervisão efetiva sobre contratos e investimentos, inclusive sobre eventual câmara de autorregulação, se mantida.</li>
+                <li><strong>Falta de consenso e necessidade de normas infralegais:</strong> vários temas, como o alcance territorial do OGMO e a própria câmara de autorregulação, permanecem sem consenso e dependerão de normas complementares se aprovados.</li>
+            </ul>
+        </section>
+
+        <section id="impactos">
+            <h2>Análise de possíveis impactos</h2>
+            <p>A incorporação ou rejeição das sugestões da ABTP ao PL 733/2025 pode produzir impactos distintos:</p>
+            <ul>
+                <li><strong>Simplificação regulatória e redução de entidades novas:</strong> a exclusão da câmara de autorregulação e da categoria de portos estratégicos evita a criação de novos órgãos e conceitos, mantendo a estrutura regulatória mais próxima da legislação atual. Isso reduz custos administrativos, mas também elimina um fórum de resolução de conflitos que poderia acelerar composições extrajudiciais. A ausência de consenso indica risco de judicialização se as partes não encontrarem mecanismos alternativos de resolução.</li>
+                <li><strong>Transparência e participação pública:</strong> a exigência de audiências públicas para revisões da poligonal e do PDZ aumenta a transparência e legitima o planejamento, permitindo que usuários e comunidades influenciem o zoneamento portuário. Todavia, pode alongar o processo de revisão e aumentar custos operacionais.</li>
+                <li><strong>Competitividade e acesso a berços públicos:</strong> reservar áreas de uso geral para operadores pré‑qualificados no PDZ favorece a concorrência e evita exclusividade de arrendatários em cais públicos. Contudo, limita a flexibilidade da autoridade portuária para destinar áreas conforme demanda e pode reduzir a atratividade de novos investimentos.</li>
+                <li><strong>Exclusão do capítulo de fornecedores de bens e serviços a navios:</strong> remover essa regulamentação elimina obrigações e direitos específicos de fornecedores e mantém a atividade regida por normas gerais. A lacuna legislativa pode gerar insegurança sobre responsabilidades e padrões de qualidade.</li>
+                <li><strong>Critérios de precificação e prorrogação:</strong> a incorporação de resultados e níveis de serviço como parâmetros para precificação (art. 52) e a vinculação da prorrogação ao interesse público, continuidade, competitividade, conformidade com o PDZ e níveis mínimos de movimentação (art. 53) aumentam a previsibilidade e alinhamento com o desempenho. Entretanto, exigem da Antaq capacidade técnica para medir serviços e dos operadores cumprimento de requisitos adicionais.</li>
+                <li><strong>Manutenção do OGMO e pluralidade de certificações:</strong> a obrigatoriedade de constituição de um único OGMO em cada porto e a possibilidade de certificação profissional por várias entidades preservam a centralidade da gestão de mão de obra e oferecem alternativas de qualificação. Contudo, restringem a liberdade dos terminais que desejam gerir diretamente sua mão de obra e podem aumentar os custos fixos.</li>
+                <li><strong>Flexibilização contratual e atração de investimentos:</strong> retirar o inciso III do art. 56 facilita a dispensa de licitação por único interessado, ao eliminar a exigência de comprovação de geração de empregos e receitas. Essa alteração, juntamente com a supressão dos parágrafos do art. 74, torna os procedimentos de outorga mais céleres e uniformes, favorecendo terminais menores ou especializados. Por outro lado, reduz instrumentos de contrapartida social que poderiam beneficiar comunidades locais.</li>
+                <li><strong>Liberdade tarifária e transferência de outorgas:</strong> ao incluir dispositivos de liberdade de preços e de transferência de concessões e arrendamentos, a ABTP busca atrair capitais e viabilizar reestruturações societárias. Essa maior flexibilidade pode elevar a competitividade e permitir que operadores vendam ou adquiram ativos portuários com menos entraves. Entretanto, a liberdade de preços pode aumentar tarifas para os usuários se não houver fiscalização efetiva da Antaq.</li>
+                <li><strong>Gestão de mão de obra e direitos sociais:</strong> as propostas de excluir quotas de aprendizagem e de pessoas com deficiência, bem como de limitar a responsabilidade do OGMO e classificar horas extras, reduzem obrigações trabalhistas e podem diminuir custos operacionais. Todavia, suprimem políticas públicas de inclusão e proteção e podem gerar críticas de sindicatos e órgãos de fiscalização.</li>
+                <li><strong>Gestão do espaço aquático e conflitos federativos:</strong> ao propor que a autoridade portuária gerencie o espaço físico em águas públicas dentro do porto organizado, a ABTP busca dar maior autonomia aos portos sobre suas áreas operacionais. Isso pode agilizar projetos de expansão, mas enfrenta risco de questionamento jurídico por interferir em competências da União (via Secretaria de Patrimônio da União). A transferência de cessão para a Antaq em portos privados é igualmente controversa.</li>
+                <li><strong>Incerteza e continuidade do debate:</strong> muitos itens na tabela da ABTP são marcados como “sem consenso”, indicando que o setor ainda negocia ajustes. A eventual incorporação das emendas dependerá de acordos políticos e técnicos na comissão especial e no plenário do Congresso. Para os gestores portuários, é prudente acompanhar a tramitação e preparar cenários tanto para a versão original do PL quanto para as alterações sugeridas.</li>
+            </ul>
+        </section>
+
+        <section id="conclusoes">
+            <h2>Conclusões gerais</h2>
+            <p>O PL 733/2025 representa uma revisão ampla do marco legal portuário brasileiro. Ele incorpora diversas propostas do anteprojeto da Ceportos, entre elas a eliminação da exclusividade na contratação de mão de obra avulsa, a flexibilização do OGMO, a possibilidade de contratação via empresas prestadoras de trabalho e a ampliação dos prazos de arrendamento. Outras mudanças estruturais incluem a transferência de competências do poder concedente para a Antaq e para as autoridades portuárias, a criação de uma câmara de autorregulação e a introdução de políticas de integração porto‑cidade com repartição de receitas aos municípios. Profissionais do setor portuário deverão atentar para ajustes contratuais (extensões de prazo e investimentos), adaptação da gestão de mão de obra (OGMO/EPTP/SENAT), e reorganização institucional (CAP ampliado e novas atribuições para a Antaq e autoridades portuárias).</p>
+        </section>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <footer>
+        <p>Gerado por Manus - IA para Análise e Desenvolvimento Web</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling para links de navegação
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Botão de voltar ao topo
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Animação de entrada para seções quando entram na viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas as seções
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Destacar link ativo na navegação
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.background = 'linear-gradient(135deg, #004080, #0066cc)';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
